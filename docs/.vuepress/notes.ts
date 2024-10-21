@@ -15,7 +15,6 @@ const pthonNote = defineNoteConfig({
     text: '准备开始',
     collapsed: false,
     items: [{
-      icon: 'mdi:tooltip-text-outline',
       text: 'VSCode安装',
       link: '/notes/python/vscode.md',
     }],
@@ -23,13 +22,23 @@ const pthonNote = defineNoteConfig({
     icon: 'mdi:tooltip-text-outline',
     text: '基础语法',
     items: [{
-      icon: 'mdi:tooltip-text-outline',
       text: '第一个Python程序',
       link: '/notes/python/first-coding.md',
     }],
   },{
-    text: 'Selenium介绍',
-    link: '/notes/python/component/selenium.md',
+    icon: 'mdi:tooltip-text-outline',
+    text: '效率工具',
+    items: [{
+      text: 'Anaconda虚拟环境管理',
+      link: '/notes/python/tools/anaconda.md',
+    }],
+    }, {
+    icon: 'mdi:tooltip-text-outline',
+    text: '常用三方组件',
+    items: [{
+      text: 'Selenium介绍',
+      link: '/notes/python/component/selenium.md',
+    }]
   }],
 })
 
