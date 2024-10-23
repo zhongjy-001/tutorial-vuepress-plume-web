@@ -41,23 +41,27 @@ export default defineUserConfig({
        *  markdown power
        * @see https://theme-plume.vuejs.press/config/plugin/markdown-power/
        */
-      // markdownPower: {
-      //   pdf: true,
-      //   caniuse: true,
-      //   plot: true,
-      //   bilibili: true,
-      //   youtube: true,
-      //   icons: true,
-      //   codepen: true,
-      //   replit: true,
-      //   codeSandbox: true,
-      //   jsfiddle: true,
-      //   repl: {
-      //     go: true,
-      //     rust: true,
-      //     kotlin: true,
-      //   },
-      // },
+      markdownPower: {
+        pdf: true,
+        caniuse: true,
+        plot: true,
+        bilibili: true,
+        // youtube: true,
+        icons: true,
+        codepen: true,
+        replit: true,
+        codeSandbox: true,
+        jsfiddle: true,
+        repl: {
+          go: true,
+          rust: true,
+          kotlin: true,
+        },
+        // npmTo: true, // 启用，并使用默认配置
+        npmTo: {
+          tabs: ['npm', 'yarn', 'pnpm'], // 代码块组默认显示顺序
+        }
+      },
 
       /**
        * 评论 comments
