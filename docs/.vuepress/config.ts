@@ -21,7 +21,7 @@ export default defineUserConfig({
        */
       shiki: {
           //  强烈建议预设代码块高亮语言，插件默认加载所有语言会产生不必要的时间开销
-        languages: ['shell', 'bash', 'typescript', 'javascript'],
+        languages: ['shell', 'bash', 'typescript', 'javascript', 'python', 'py', 'java', 'c', 'html', 'css'],
       },
 
       /**
@@ -30,7 +30,7 @@ export default defineUserConfig({
        */
       markdownEnhance: {
         demo: true,
-      //   include: true,
+        include: true,
       //   chart: true,
       //   echarts: true,
       //   mermaid: true,
@@ -67,16 +67,17 @@ export default defineUserConfig({
        * 评论 comments
        * @see https://theme-plume.vuejs.press/guide/features/comments/
        */
-      // comment: {
-      //   provider: '', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
-      //   comment: true,
-      //   repo: '',
-      //   repoId: '',
-      //   categoryId: '',
-      //   mapping: 'pathname',
-      //   reactionsEnabled: true,
-      //   inputPosition: 'top',
-      // },
+      comment: {
+        provider: 'Giscus', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
+        comment: true,
+        repo: 'zhongjy-001/tutorial-vuepress-plume-web',
+        repoId: 'R_kgDONDbVYg',
+        category: 'Announcements',
+        categoryId: 'DIC_kwDONDbVYs4CjtFs',
+        mapping: 'pathname',
+        reactionsEnabled: true,
+        inputPosition: 'top',
+      },
     },
   }),
 })
