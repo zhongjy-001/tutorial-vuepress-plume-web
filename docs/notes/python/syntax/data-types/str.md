@@ -38,14 +38,28 @@ Python 中的字符串可以是由   单引号（'），双引号（"）、三�
 
 :::
 
-## 内建函数
+## 常见函数
 
-@[code{12-}](../../demo/var-str-func.py)
+@[code{12-}](../../demo/var-str-funcuse.py)
 
 ::: demo-wrapper title="运行结果"
 
-<!-- @include: ../../demo/var-str-func-result.md -->
+<!-- @include: ../../demo/var-str-funcuse-result.md -->
 
 :::
 
-a
+**使用下列方法可以查看字符串的所有内建函数**
+
+@[code{4-16}](../../demo/var-str-func.py)
+
+## 常用功能
+
+### 大小写转换
+
+@[code{21-33}](../../demo/var-str-func.py)
+
+### 连接与重复
+
+使用 + 进行连接，+ 是字符串的连接符。
+
+使用乘法（*）可实现字符串的重复。
