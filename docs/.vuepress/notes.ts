@@ -17,7 +17,7 @@ const pthonNote = defineNoteConfig({
     collapsed: false,
     items: [{
       text: '第一个Python程序',
-      link: '/first-coding.md',
+      link: '/notes/python/first-coding.md',
     }],
   },{
     prefix: '/notes/python/tools/',
