@@ -3,7 +3,7 @@ title: 士大夫十分
 tags:
   - mysql
 createTime: 2024/10/21 14:42:33
-permalink: /blog/sdfsdf.html
+permalink: /blog/csharp/cef/markdown1.html
 ---
 
 ## Markdown1
