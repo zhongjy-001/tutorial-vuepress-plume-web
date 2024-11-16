@@ -9,11 +9,11 @@ permalink: /blog/csharp/how-unittest.html
 
 > 我们用 VS2022 中自带的测试模块（MSTest）来写一个简单的单元测试
 
-### 添加待测试代码
+### 功能代码
 
 1. 新建一个空解决方案，并添加一个项目
    
-2. 我们做一个小功能，计算中奖号码中，我的号码命中了几个球
+2. 我们有一个小小的需求，做一个小游戏，计算中奖号码中，我的号码命中了几个
 
 ```c#
 namespace DemoLibrary.Demo01
@@ -33,7 +33,9 @@ namespace DemoLibrary.Demo01
 
 ```
 
-### 添加测试项目
+---
+
+### 测试项目
 
 3. 在解决方案中添加一个测试项目
    
@@ -43,7 +45,9 @@ namespace DemoLibrary.Demo01
 
 新建好测试项目之后，你会得到一个UnitTest1测试类模板。
 
-### 编写测试代码
+---
+
+### 测试代码
 
 4. 在测试项目中，添加如下测试代码
 
@@ -54,309 +58,186 @@ namespace DemoLibrary.MSTestProject
     public partial class SmallGameTest
     {
         [TestMethod]
-        public void TestWinCount____没有球中奖()
+        public void TestWinCount____Case01_没有球中奖()
         {
-            var res = Demo01.SmallGame.WinCount("01,05,07,09", "02,03");
+            var game = new Demo01.SmallGame();
+            game.WinNumbers = "01,05,07,09";
+            var winCount = game.WinCount("02,03");
 
-            Assert.AreEqual(0, res);
+            Assert.AreEqual(0, winCount);
         }
     }
 }
 ```
 
-加粗：**加粗文字**
+**TestClass特性**： 定义类为一个测试类
 
-斜体： _斜体文字_
+**TestMethod特性**： 定义方法为一个测试方法
 
-~~删除文字~~
+---
 
-内容 ==标记==
 
-数学表达式： $-(2^{n-1})$ ~ $2^{n-1} -1$
+5. 可以在一个类里添加多个Case来测试多种情况
 
-$\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right)
-= \left(\frac {y^{\omega}} {\omega}\right) \left\{(\log y)^r + \sum_{i=1}^r \frac {(-1)^ Ir \cdots (r-i+1) (\log y)^{ri}} {\omega^i} \right\}$
+```c#
+namespace DemoLibrary.MSTestProject
+{
+    [TestClass]
+    public partial class SmallGameTest
+    {
+        [TestMethod]
+        public void TestWinCount____Case01_没有球中奖()
+        {
+            var game = new Demo01.SmallGame();
+            game.WinNumbers = "01,05,07,09";
+            var winCount = game.WinCount("02,03");
 
-19^th^
-
-H~2~O
-
-::: center
-内容居中
-:::
-
-::: right
-内容右对齐
-:::
-
-- 无序列表1
-- 无序列表2
-- 无序列表3
-
-1. 有序列表1
-2. 有序列表2
-3. 有序列表3
-
-- [ ] 任务列表1
-- [ ] 任务列表2
-- [x] 任务列表3
-- [x] 任务列表4
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-> 引用内容
->
-> 引用内容
-
-[链接](/)
-
-[外部链接](https://github.com/pengzhanbo)
-
-**Badge：**
-
-- <Badge type="info" text="info badge" />
-- <Badge type="tip" text="tip badge" />
-- <Badge type="warning" text="warning badge" />
-- <Badge type="danger" text="danger badge" />
-
-**图标：**
-
-- home - <Icon name="material-symbols:home" color="currentColor" size="1em" />
-- vscode - <Icon name="skill-icons:vscode-dark" size="2em" />
-- twitter - <Icon name="skill-icons:twitter" size="2em" />
-
-**demo wrapper：**
-
-::: demo-wrapper title="示例" no-padding height="200px"
-<style scoped>
-.open-door {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-}
-.open-door .main {
-  background: #ccc;
-}
-</style>
-
-<div class="open-door">
-  <div class="main">main</div>
-  <div class="aside">aside</div>
-</div>
-
-:::
-
-**代码：**
-
-```js whitespace
-const a = 1
-const b = 2
-const c = a + b
-
-// [!code word:obj]
-const obj = {
-  toLong: {
-    deep: {
-      deep: {
-        deep: {
-          value: 'this is to long text. this is to long text. this is to long text. this is to long text.', // [!code highlight]
+            Assert.AreEqual(0, winCount);
         }
-      }
+        [TestMethod]
+        public void TestWinCount____Case02_中奖1个球()
+        {
+            var game = new Demo01.SmallGame();
+            game.WinNumbers = "01,05,07,09";
+            var winCount = game.WinCount("02,03,05");
+
+            Assert.AreEqual(1, winCount);
+        }
     }
-  }
 }
 ```
 
-**代码分组：**
+---
 
-::: code-tabs
-@tab tab1
+6. 运行测试代码
 
-```js
-const a = 1
-const b = 2
-const c = a + b
-```
+打开 视图 -> 测试资源管理器，如下图
 
-@tab tab2
+![Alt text](/images/csharp/tdd/mstest-05-open-test-view.png "图片")
 
-```ts
-const a: number = 1
-const b: number = 2
-const c: number = a + b
-```
+![Alt text](/images/csharp/tdd/mstest-06-test-explorer.png "图片")
 
-:::
+选择类名，并右键选择“运行”，全部运行成功后，前方有一个绿色的小勾
 
-**代码块高亮：**
+![Alt text](/images/csharp/tdd/mstest-07-test-run.png "图片")
 
-```ts
-function foo() {
-  const a = 1 // [!code highlight]
+![Alt text](/images/csharp/tdd/mstest-08-test-all-success.png "图片")
 
-  console.log(a)
+---
 
-  const b = 2 // [!code ++]
-  const c = 3 // [!code --]
+### 高级用法
 
-  console.log(a + b + c) // [!code error]
-  console.log(a + b) // [!code warning]
+6. 测试的初始化/清理方法
+
+| 特性        | 用途           |
+|:------------- |:--------------|
+|[TestInitialize]|定义为一个初始化方法，在`每次运行一个测试方法`之前，先调用此方法|
+|[TestCleanup]|定义为一个清理方法，在`每次运行完一个测试方法`之后，再调用此方法|
+|[ClassInitialize]|定义为一个类初始化方法，在`运行这个类的测试`之前，调用一次此方法，一般用于初始化这个类需要的数据，比如数据库。要求定义为静态方法，并添加TestContext作为参数|
+|[ClassCleanup]|定义为一个类清理方法，在`运行完所有此类的测试`以后，再调用此方法|
+|[AssemblyInitialize]|定义为一个程序集初始化方法，在`运行这个程序集的测试`之前，调用一次此方法，一般用于初始化这个程序集需要的数据，比如数据库。要求定义为静态方法，并添加TestContext作为参数|
+|[AssemblyCleanup]|定义为一个程序集清理方法，在`运行完所有此程序集的测试`以后，再调用此方法|
+
+**用法代码**
+
+```c#
+namespace DemoLibrary.MSTestProject
+{
+    [TestClass]
+    public class SmallGameTest
+    {
+        [AssemblyInitialize]
+        public static void AssemblyInit(TestContext testContext)
+        {
+        }
+
+        [AssemblyCleanup]
+        public static void AssemblyCleanup()
+        {
+        }
+
+        [ClassInitialize]
+        public static void ClassInit(TestContext testContext)
+        {
+        }
+
+        [ClassCleanup]
+        public static void ClassCleanup()
+        {
+        }
+
+        [TestInitialize]
+        public void TestInit()
+        {
+        }
+
+        [TestCleanup]
+        public void TestCleaup()
+        {
+        }
+    }
 }
 ```
 
-**代码块聚焦：**
+---
 
-```ts
-function foo() {
-  const a = 1 // [!code focus]
+7. 参数化测试（推荐）
+
+上面例子中只是其中的两个测试用例，随着用例的增多，这样使用很不方便。我们可以通过DataRowAttribute参数，合并成一个用例，如下：
+
+```c#
+namespace DemoLibrary.MSTestProject
+{
+    [TestClass]
+    public class SmallGameTest
+    {
+        [DataTestMethod]
+        [DataRow("01,05,07,09", "02,03", 0, DisplayName = "没有球中奖")]
+        [DataRow("01,05,07,09", "02,03,05", 1, DisplayName = "中奖1个球")]
+        public void TestWinCount(string winCode, string myCode, object expectedValue)
+        {
+            var game = new Demo01.SmallGame();
+            game.WinNumbers = winCode;
+            var winCount = game.WinCount(myCode);
+
+            Assert.AreEqual(expectedValue, winCount);
+        }
+    }
 }
 ```
 
-::: note 注释
-注释内容 [link](https://github.com/pengzhanbo) `inline code`
+结果显示如下
 
-```js
-const a = 1
-const b = 2
-const c = a + b
-```
+![Alt text](/images/csharp/tdd/mstest-09-test-param-all-success.png "图片")
 
-:::
+8. 用DynamicData代替参数化测试
 
-::: info 信息
-信息内容 [link](https://github.com/pengzhanbo) `inline code`
+```c#
+namespace DemoLibrary.MSTestProject
+{
+    [TestClass]
+    public class SmallGameTest
+    {
+        [TestMethod]
+        [DynamicData(nameof(Datas))]
+        public void TestWinCount(string winCode, string myCode, object expectedValue)
+        {
+            var game = new Demo01.SmallGame();
+            game.WinNumbers = winCode;
+            var winCount = game.WinCount(myCode);
 
-```js
-const a = 1
-const b = 2
-const c = a + b
-```
-
-:::
-
-::: tip 提示
-提示内容 [link](https://github.com/pengzhanbo) `inline code`
-
-```js
-const a = 1
-const b = 2
-const c = a + b
-```
-
-:::
-
-::: warning 警告
-警告内容 [link](https://github.com/pengzhanbo) `inline code`
-
-```js
-const a = 1
-const b = 2
-const c = a + b
-```
-
-:::
-
-::: caution 错误
-错误内容 [link](https://github.com/pengzhanbo) `inline code`
-
-```js
-const a = 1
-const b = 2
-const c = a + b
-```
-
-:::
-
-::: important 重要
-重要内容 [link](https://github.com/pengzhanbo) `inline code`
-
-```js
-const a = 1
-const b = 2
-const c = a + b
-```
-
-:::
-
-**GFM alert：**
-
-> [!note]
-> note
-
-> [!info]
-> info
-
-> [!tip]
-> tip
-
-> [!warning]
-> warning
-
-> [!caution]
-> caution
-
-> [!important]
-> important
-
-**代码演示：**
-
-::: normal-demo Demo 演示
-
-```html
-<h1>Hello Word!</h1>
-<p><span id="very">非常</span>强大!</p>
-```
-
-```js
-document.querySelector('#very').addEventListener('click', () => {
-  alert('非常强大')
-})
-```
-
-```css
-span {
-  color: red;
+            Assert.AreEqual(expectedValue, winCount);
+        }
+        private static IEnumerable<object[]> Datas
+        {
+            get
+            {
+                yield return new object[] { "01,05,07,09", "02,03", 0 };
+                yield return new object[] { "01,05,07,09", "02,03,05", 1 };
+            }
+        }
+    }
 }
 ```
 
-:::
-
-**选项卡：**
-
-::: tabs
-@tab 标题1
-内容区块
-
-@tab 标题2
-内容区块
-:::
-
-:::: warning
-::: tabs
-@tab 标题1
-内容区块
-
-@tab 标题2
-内容区块
-:::
-::::
-
-**脚注：**
-
-脚注 1 链接[^first]。
-
-脚注 2 链接[^second]。
-
-行内的脚注^[行内脚注文本] 定义。
-
-重复的页脚定义[^second]。
-
-[^first]: 脚注 **可以包含特殊标记**
-
-    也可以由多个段落组成
-
-[^second]: 脚注文字。
+总之，笔者还是推荐参数化测试。
