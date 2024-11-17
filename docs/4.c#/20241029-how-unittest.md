@@ -7,9 +7,9 @@ createTime: 2024/10/29 14:42:33
 permalink: /blog/csharp/how-unittest.html
 ---
 
-> 我们用 VS2022 中自带的测试模块（MSTest）来写一个简单的单元测试
+> 用 VS2022 中自带的测试模块（MSTest）写一个简单的单元测试
 
-### 功能代码
+## 功能代码
 
 1. 新建一个空解决方案，并添加一个项目
    
@@ -33,9 +33,7 @@ namespace DemoLibrary.Demo01
 
 ```
 
----
-
-### 测试项目
+## 测试项目
 
 3. 在解决方案中添加一个测试项目
    
@@ -45,9 +43,7 @@ namespace DemoLibrary.Demo01
 
 新建好测试项目之后，你会得到一个UnitTest1测试类模板。
 
----
-
-### 测试代码
+## 基础测试
 
 4. 在测试项目中，添加如下测试代码
 
@@ -74,8 +70,7 @@ namespace DemoLibrary.MSTestProject
 
 **TestMethod特性**： 定义方法为一个测试方法
 
----
-
+**Assert断言**： 是用来测试方法的实际运行结果与期望的结果是否一致，是单元测试中最基本的组成部分
 
 5. 可以在一个类里添加多个Case来测试多种情况
 
@@ -107,8 +102,6 @@ namespace DemoLibrary.MSTestProject
 }
 ```
 
----
-
 6. 运行测试代码
 
 打开 视图 -> 测试资源管理器，如下图
@@ -123,9 +116,9 @@ namespace DemoLibrary.MSTestProject
 
 ![Alt text](/images/csharp/tdd/mstest-08-test-all-success.png "图片")
 
----
+## 高级用法
 
-### 高级用法
+### 初始化/清理
 
 6. 测试的初始化/清理方法
 
@@ -178,8 +171,6 @@ namespace DemoLibrary.MSTestProject
     }
 }
 ```
-
----
 
 7. 参数化测试（推荐）
 
@@ -241,3 +232,34 @@ namespace DemoLibrary.MSTestProject
 ```
 
 总之，笔者还是推荐参数化测试。
+
+### Assert断言
+
+断言即断然言之，十分肯定地说。可以通过不同的断言来测试方法实际运行的结果和你期望的结果是否一致。
+
+9. Assert静态类的断言方法
+
+|方法|作用|
+|:------|:------|
+|Assert.AreEqual()|验证值相等|
+|Assert.AreNotEqual()|验证值不相等|
+|Assert.AreSame()|验证引用相等|
+|Assert.AreNotSame()|验证引用不相等|
+|Assert.Inconclusive()|暗示条件还未被验证|
+|Assert.IsTrue()|验证条件为真|
+|Assert.IsFalse()|验证条件为假|
+|Assert.IsInstanceOfType()|验证实例匹配类型|
+|Assert.IsNotInstanceOfType()|验证实例不匹配类型|
+|Assert.IsNotNull()|验证条件为NULL|
+|Assert.IsNull()|验证条件不为 NULL|
+|Assert.Fail()|验证失败|
+
+10. StringAssert静态类的断言方法
+
+|方法|作用|
+|:------|:------|
+|StringAssert.AreEqualIgnoringCase()|用于断言两个字符串在不区分大小写情况下是否相等,需要提供两个参数,第一个是期待的结果,第二个是实际结果.|
+|StringAssert.Contains()|用于断言一个字符串是否包含另一字符串,其中第一个参数为被包含的字符串,第二个为实际字符串|
+|StringAssert.StartsWith()|断言字符串是否以某(几)字符开始, 第一个参数为开头的字符串 ,第二个为实际字符串|
+|StringAssert.EndsWith()|断言字符串是否以某(几)字符结束|
+|StringAssert.Matches()|断言字符串是否符合特定的正则表达式|

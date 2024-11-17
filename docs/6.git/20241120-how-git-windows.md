@@ -1,9 +1,10 @@
 ---
-title: 士大夫十分
+title: Windows下Git的配置使用
 tags:
-  - mysql
-createTime: 2024/10/21 14:42:33
-permalink: /blog/git/
+  - git
+  - windows
+createTime: 2024/11/20 11:34:10
+permalink: /blog/git/how-git-windows.html
 ---
 
 ## Markdown1
