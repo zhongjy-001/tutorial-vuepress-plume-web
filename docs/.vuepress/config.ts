@@ -1,6 +1,7 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
+import { baiduAnalyticsPlugin } from '@vuepress/plugin-baidu-analytics'
 
 export default defineUserConfig({
   base: '/',
@@ -9,12 +10,20 @@ export default defineUserConfig({
   description: '学习编程的原创中文教程',
 
   bundler: viteBundler(),
-
+  head: [
+    [
+      'script', {
+        type:'text/javascript',
+        src:'https://hm.baidu.com/hm.js?09d805ec501edb0c0cad2050e70fb9bb'
+      }, 
+    ]
+  ],
   theme: plumeTheme({
     // 添加您的部署域名
     hostname: 'https://www.igoblogs.com',
 
     plugins: {
+      
       /**
        * Shiki 代码高亮
        * @see https://theme-plume.vuejs.press/config/plugins/code-highlight/
