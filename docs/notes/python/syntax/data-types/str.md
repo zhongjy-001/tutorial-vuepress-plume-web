@@ -1,7 +1,7 @@
 ---
 title: 字符串
 createTime: 2024/10/27 20:47:19
-permalink: /article/n2k891gn/
+permalink: /notes/python/syntax/data-type/str.html
 ---
 
 ## 创建字符串

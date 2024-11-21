@@ -1,7 +1,7 @@
 ---
 title: Demo
 createTime: 2024/10/21 14:42:33
-permalink: /demo/
+permalink: /notes/demo/
 ---
 
 - [bar](./bar.md)
