@@ -121,59 +121,7 @@ namespace DemoLibrary.MSTestProject
 
 ## 高级用法
 
-### 初始化/清理
-
-6. 测试的初始化/清理方法
-
-| 特性        | 用途           |
-|:------------- |:--------------|
-|[TestInitialize]|定义为一个初始化方法，在`每次运行一个测试方法`之前，先调用此方法|
-|[TestCleanup]|定义为一个清理方法，在`每次运行完一个测试方法`之后，再调用此方法|
-|[ClassInitialize]|定义为一个类初始化方法，在`运行这个类的测试`之前，调用一次此方法，一般用于初始化这个类需要的数据，比如数据库。要求定义为静态方法，并添加TestContext作为参数|
-|[ClassCleanup]|定义为一个类清理方法，在`运行完所有此类的测试`以后，再调用此方法|
-|[AssemblyInitialize]|定义为一个程序集初始化方法，在`运行这个程序集的测试`之前，调用一次此方法，一般用于初始化这个程序集需要的数据，比如数据库。要求定义为静态方法，并添加TestContext作为参数|
-|[AssemblyCleanup]|定义为一个程序集清理方法，在`运行完所有此程序集的测试`以后，再调用此方法|
-
-**用法代码**
-
-```c#
-namespace DemoLibrary.MSTestProject
-{
-    [TestClass]
-    public class SmallGameTest
-    {
-        [AssemblyInitialize]
-        public static void AssemblyInit(TestContext testContext)
-        {
-        }
-
-        [AssemblyCleanup]
-        public static void AssemblyCleanup()
-        {
-        }
-
-        [ClassInitialize]
-        public static void ClassInit(TestContext testContext)
-        {
-        }
-
-        [ClassCleanup]
-        public static void ClassCleanup()
-        {
-        }
-
-        [TestInitialize]
-        public void TestInit()
-        {
-        }
-
-        [TestCleanup]
-        public void TestCleaup()
-        {
-        }
-    }
-}
-```
+### 参数化
 
 7. 参数化测试（推荐）
 
@@ -236,11 +184,65 @@ namespace DemoLibrary.MSTestProject
 
 总之，笔者还是推荐参数化测试。
 
+### 初始化/清理
+
+9. 测试的初始化/清理方法
+
+| 特性        | 用途           |
+|:------------- |:--------------|
+|[TestInitialize]|定义为一个初始化方法，在`每次运行一个测试方法`之前，先调用此方法|
+|[TestCleanup]|定义为一个清理方法，在`每次运行完一个测试方法`之后，再调用此方法|
+|[ClassInitialize]|定义为一个类初始化方法，在`运行这个类的测试`之前，调用一次此方法，一般用于初始化这个类需要的数据，比如数据库。要求定义为静态方法，并添加TestContext作为参数|
+|[ClassCleanup]|定义为一个类清理方法，在`运行完所有此类的测试`以后，再调用此方法|
+|[AssemblyInitialize]|定义为一个程序集初始化方法，在`运行这个程序集的测试`之前，调用一次此方法，一般用于初始化这个程序集需要的数据，比如数据库。要求定义为静态方法，并添加TestContext作为参数|
+|[AssemblyCleanup]|定义为一个程序集清理方法，在`运行完所有此程序集的测试`以后，再调用此方法|
+
+**用法代码**
+
+```c#
+namespace DemoLibrary.MSTestProject
+{
+    [TestClass]
+    public class SmallGameTest
+    {
+        [AssemblyInitialize]
+        public static void AssemblyInit(TestContext testContext)
+        {
+        }
+
+        [AssemblyCleanup]
+        public static void AssemblyCleanup()
+        {
+        }
+
+        [ClassInitialize]
+        public static void ClassInit(TestContext testContext)
+        {
+        }
+
+        [ClassCleanup]
+        public static void ClassCleanup()
+        {
+        }
+
+        [TestInitialize]
+        public void TestInit()
+        {
+        }
+
+        [TestCleanup]
+        public void TestCleaup()
+        {
+        }
+    }
+}
+```
+
 ### Assert断言
 
 断言即断然言之，十分肯定地说。可以通过不同的断言来测试方法实际运行的结果和你期望的结果是否一致。
 
-9. Assert静态类的断言方法
+10. Assert静态类的断言方法
 
 |方法|作用|
 |:------|:------|
@@ -257,7 +259,7 @@ namespace DemoLibrary.MSTestProject
 |Assert.IsNull()|验证条件不为 NULL|
 |Assert.Fail()|验证失败|
 
-10. StringAssert静态类的断言方法
+11. StringAssert静态类的断言方法
 
 |方法|作用|
 |:------|:------|

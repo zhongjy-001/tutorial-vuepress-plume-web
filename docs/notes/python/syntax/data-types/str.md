@@ -2,6 +2,7 @@
 title: 字符串
 createTime: 2024/10/27 20:47:19
 permalink: /notes/python/syntax/data-type/str.html
+draft: true
 ---
 
 ## 创建字符串

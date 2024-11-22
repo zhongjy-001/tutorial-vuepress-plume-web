@@ -5,6 +5,7 @@ tags:
   - windows
 createTime: 2024/11/20 11:34:10
 permalink: /blog/git/how-git-windows.html
+draft: true
 ---
 
 ## Markdown1

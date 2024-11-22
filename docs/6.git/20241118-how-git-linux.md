@@ -5,6 +5,7 @@ tags:
   - linux
 createTime: 2024/11/18 00:42:33
 permalink: /blog/git/how-git-linux.html
+draft: true
 ---
 
 ## Markdown1

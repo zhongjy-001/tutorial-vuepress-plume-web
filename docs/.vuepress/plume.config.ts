@@ -15,7 +15,7 @@ export default defineThemeConfig({
 
   profile: {
     // avatar: 'https://theme-plume.vuejs.press/plume.png',
-    name: '一起学编程',
+    name: '一起来编程',
     description: '学习编程的原创中文教程',
     // circle: true,
     location: '重庆市',
