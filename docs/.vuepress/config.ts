@@ -6,7 +6,7 @@ import { baiduAnalyticsPlugin } from '@vuepress/plugin-baidu-analytics'
 export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
-  title: '一起学编程',
+  title: '一起来编程',
   description: '学习编程的原创中文教程',
 
   bundler: viteBundler(),
