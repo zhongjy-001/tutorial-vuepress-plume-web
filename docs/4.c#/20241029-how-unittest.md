@@ -1,8 +1,5 @@
 ---
 title: 使用C#如何写单元测试
-category:
-  - c#
-  - 单元测试
 tags:
   - c#
   - 单元测试
